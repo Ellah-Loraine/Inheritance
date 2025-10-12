@@ -1,0 +1,183 @@
+package Inheritance1;
+
+import javax.swing.JOptionPane;
+
+public class Main {
+    public static void main(String[] args) {
+        String name = JOptionPane.showInputDialog("Enter employee name:");
+        double salary = Double.parseDouble(JOptionPane.showInputDialog("Enter base salary:"));
+        String isManager = JOptionPane.showInputDialog("Is the employee a manager? (yes/no):");
+
+        if (isManager.equalsIgnoreCase("yes")) {
+            double bonus = Double.parseDouble(JOptionPane.showInputDialog("Enter bonus:"));
+            Managers m = new Managers(name, salary, bonus);
+            JOptionPane.showMessageDialog(null, "Enter employee name: " + name + "\nEnter base salary: " + salary +  "\nIs the employee a manager? (yes/no): " + isManager + "\nEnter bonus: " + bonus +  "\nTotal Salary of Manager " + name + ": " + String.format("%.2f", m.total()));
+        } else {
+            RegEm emp = new RegEm(name, salary);
+            JOptionPane.showMessageDialog(null, "Enter employee name: " + name + "\nEnter base salary: " + salary + "\nIs the employee a manager? (yes/no): " + isManager + "\nEnter bonus: 0.0" + "\nTotal Salary of Employee " + name + ": " + String.format("%.2f", emp.total()));
+        }
+    }
+}
+package Inheritance1;
+
+class RegEm {
+    String name;
+    double salary;
+
+    public RegEm(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    double total() {
+        return salary;
+    }
+}
+package Inheritance1;
+
+class Managers extends RegEm {
+    private double bonus;
+
+    public Managers(String name, double salary, double bonus) {
+        super(name, salary);
+        this.bonus = bonus;
+    }
+
+    @Override
+    double total() {
+        return salary + bonus;
+    }
+}
+
+
+
+package Inheritance2;
+
+import javax.swing.JOptionPane;
+
+public class Main {
+	public static void main(String[] args) {
+		String name = JOptionPane.showInputDialog("Enter product name:");
+	    double price = Double.parseDouble(JOptionPane.showInputDialog("Enter price:"));
+	    String type = JOptionPane.showInputDialog("Enter product type (electronics/clothes):");
+
+	    if (type.equalsIgnoreCase("electronics")) {
+	    	double warrantyFee = Double.parseDouble(JOptionPane.showInputDialog("Enter warranty fee:"));
+	        Electronics electronic = new Electronics(name, price, warrantyFee);
+	        JOptionPane.showMessageDialog(null, "Enter product name: " + name + "\nEnter price: " + price + "\nEnter product type (electronics/clothes): " + type + "\nEnter warranty fee: " + warrantyFee + "\nFinal price of " + type + ": " + String.format("%.2f", electronic.finalPrice()));
+	    }else if (type.equalsIgnoreCase("clothes")) {
+		    double discount = Double.parseDouble(JOptionPane.showInputDialog("Enter discount percentage:"));
+	        Clothes cloth = new Clothes(name, price, discount);
+	        JOptionPane.showMessageDialog(null, "Enter product name: " + name + "\nEnter price: " + price + "\nEnter product type (electronics/clothes): " + type + "\nEnter discount percentage: " + discount + "\nFinal price of" + type + ": " + String.format("%.2f", cloth.finalPrice()));
+	    }else {
+	        JOptionPane.showMessageDialog(null, "Invalid product type entered.");
+	    }
+	}
+}
+package Inheritance2;
+
+class Product {
+    String name;
+	double price;
+
+    public Product(String name, double price) {
+    	this.name = name;
+    	this.price = price;
+    }
+    
+    public double finalPrice() {
+    	return price;
+	}
+}
+package Inheritance2;
+
+class Electronics extends Product {
+    private double warrantyFee;
+
+    public Electronics(String name, double price, double warrantyFee) {
+        super(name, price);
+        this.warrantyFee = warrantyFee;
+    }
+
+    @Override
+    public double finalPrice() {
+        return price + warrantyFee;
+    }
+}
+package Inheritance2;
+
+class Clothes extends Product {
+	double discount;
+
+    public Clothes(String name, double price, double discount) {
+        super(name, price);
+        this.discount = discount;
+    }
+
+    @Override
+    public double finalPrice() {
+        return price = (price * discount / 100);
+    }
+}
+
+
+
+
+
+
+
+package Inheritance3;
+
+import javax.swing.JOptionPane;
+
+class Salary extends Employee {
+    double basicSalary, hra, totalSalary;
+
+    void salary() {
+        basicSalary = Double.parseDouble(JOptionPane.showInputDialog("Enter Basic Salary:"));
+        hra = basicSalary * 0.20; 
+        totalSalary = basicSalary + hra;
+    }
+
+    void displayInfo() {
+        String total = "Name: " + name + "\nEmployee ID: " + empID + "\nBasic Salary: " + String.format("%.2f", basicSalary) + "\nHRA: " + String.format("%.2f", hra) + "\nTotal Salary: " + String.format("%.2f", totalSalary);
+        JOptionPane.showMessageDialog(null, total);
+    }
+}
+package Inheritance3;
+
+import javax.swing.JOptionPane;
+
+class Person {
+    String name;
+
+    void person() {
+        name = JOptionPane.showInputDialog("Enter Name:");
+    }
+}
+package Inheritance3;
+
+public class Main {
+    public static void main(String[] args) {
+        Salary s = new Salary();
+        s.person();
+        s.emp();
+        s.salary();
+        s.displayInfo();
+    }
+}
+package Inheritance3;
+
+import javax.swing.JOptionPane;
+
+class Employee extends Person {
+    int empID;
+
+    @Override
+    void person() {
+        name = JOptionPane.showInputDialog("Enter Name:");
+    }
+    void emp() {
+        empID = Integer.parseInt(JOptionPane.showInputDialog("Enter Employee ID:"));
+    }
+}
