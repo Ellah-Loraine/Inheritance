@@ -1,3 +1,6 @@
+PROBLEM 1
+
+// Main class
 package Inheritance1;
 
 import javax.swing.JOptionPane;
@@ -18,6 +21,7 @@ public class Main {
         }
     }
 }
+//Parent class
 package Inheritance1;
 
 class RegEm {
@@ -33,6 +37,7 @@ class RegEm {
         return salary;
     }
 }
+// Child class
 package Inheritance1;
 
 class Managers extends RegEm {
@@ -51,6 +56,11 @@ class Managers extends RegEm {
 
 
 
+
+
+PROBLEM 2
+
+// Main class
 package Inheritance2;
 
 import javax.swing.JOptionPane;
@@ -74,6 +84,7 @@ public class Main {
 	    }
 	}
 }
+//Parent class
 package Inheritance2;
 
 class Product {
@@ -89,6 +100,7 @@ class Product {
     	return price;
 	}
 }
+//Child class
 package Inheritance2;
 
 class Electronics extends Product {
@@ -104,6 +116,7 @@ class Electronics extends Product {
         return price + warrantyFee;
     }
 }
+//Child class
 package Inheritance2;
 
 class Clothes extends Product {
@@ -124,8 +137,49 @@ class Clothes extends Product {
 
 
 
+PROBLEM 3
 
+//Main class
+package Inheritance3;
 
+public class Main {
+    public static void main(String[] args) {
+        Salary s = new Salary();
+        s.person();
+        s.emp();
+        s.salary();
+        s.displayInfo();
+    }
+}
+//Parent class
+package Inheritance3;
+
+import javax.swing.JOptionPane;
+
+class Person {
+    String name;
+
+    void person() {
+        name = JOptionPane.showInputDialog("Enter Name:");
+    }
+}
+//Child class
+package Inheritance3;
+
+import javax.swing.JOptionPane;
+
+class Employee extends Person {
+    int empID;
+
+    @Override
+    void person() {
+        name = JOptionPane.showInputDialog("Enter Name:");
+    }
+    void emp() {
+        empID = Integer.parseInt(JOptionPane.showInputDialog("Enter Employee ID:"));
+    }
+}
+//Child class
 package Inheritance3;
 
 import javax.swing.JOptionPane;
@@ -144,40 +198,4 @@ class Salary extends Employee {
         JOptionPane.showMessageDialog(null, total);
     }
 }
-package Inheritance3;
 
-import javax.swing.JOptionPane;
-
-class Person {
-    String name;
-
-    void person() {
-        name = JOptionPane.showInputDialog("Enter Name:");
-    }
-}
-package Inheritance3;
-
-public class Main {
-    public static void main(String[] args) {
-        Salary s = new Salary();
-        s.person();
-        s.emp();
-        s.salary();
-        s.displayInfo();
-    }
-}
-package Inheritance3;
-
-import javax.swing.JOptionPane;
-
-class Employee extends Person {
-    int empID;
-
-    @Override
-    void person() {
-        name = JOptionPane.showInputDialog("Enter Name:");
-    }
-    void emp() {
-        empID = Integer.parseInt(JOptionPane.showInputDialog("Enter Employee ID:"));
-    }
-}
