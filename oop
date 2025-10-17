@@ -1,6 +1,8 @@
+INHERITANCE
+
+
 PROBLEM 1
 
-// Main class
 package Inheritance1;
 
 import javax.swing.JOptionPane;
@@ -21,7 +23,7 @@ public class Main {
         }
     }
 }
-//Parent class
+
 package Inheritance1;
 
 class RegEm {
@@ -37,7 +39,7 @@ class RegEm {
         return salary;
     }
 }
-// Child class
+
 package Inheritance1;
 
 class Managers extends RegEm {
@@ -60,7 +62,7 @@ class Managers extends RegEm {
 
 PROBLEM 2
 
-// Main class
+
 package Inheritance2;
 
 import javax.swing.JOptionPane;
@@ -84,7 +86,7 @@ public class Main {
 	    }
 	}
 }
-//Parent class
+
 package Inheritance2;
 
 class Product {
@@ -100,7 +102,7 @@ class Product {
     	return price;
 	}
 }
-//Child class
+
 package Inheritance2;
 
 class Electronics extends Product {
@@ -116,7 +118,7 @@ class Electronics extends Product {
         return price + warrantyFee;
     }
 }
-//Child class
+
 package Inheritance2;
 
 class Clothes extends Product {
@@ -139,7 +141,7 @@ class Clothes extends Product {
 
 PROBLEM 3
 
-//Main class
+
 package Inheritance3;
 
 public class Main {
@@ -151,7 +153,7 @@ public class Main {
         s.displayInfo();
     }
 }
-//Parent class
+
 package Inheritance3;
 
 import javax.swing.JOptionPane;
@@ -163,7 +165,7 @@ class Person {
         name = JOptionPane.showInputDialog("Enter Name:");
     }
 }
-//Child class
+
 package Inheritance3;
 
 import javax.swing.JOptionPane;
@@ -179,7 +181,7 @@ class Employee extends Person {
         empID = Integer.parseInt(JOptionPane.showInputDialog("Enter Employee ID:"));
     }
 }
-//Child class
+
 package Inheritance3;
 
 import javax.swing.JOptionPane;
